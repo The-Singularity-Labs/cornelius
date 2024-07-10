@@ -1,0 +1,15 @@
+concurrency: 1
+pipelines:
+  - name: Only root files
+    destination_drive_wallet_path: /etc/cornelius/arweave_wallet.json
+    destination_drive_password: /etc/cornelius/arweave_wallet_password.txt
+    destination_drive_id: 1234
+    enableManifest: false
+    frequency: "30s"
+    bucket:
+      name: genesis
+      host: host.docker.internal:9000
+      access_id: minioadmin
+      secret_key: minioadmin
+      is_secure: false
+      is_recursive: false
