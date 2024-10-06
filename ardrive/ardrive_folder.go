@@ -1,4 +1,4 @@
-package sync
+package ardrive
 
 type ArdriveFolderInfo struct {
 	AppName        string `json:"appName"`

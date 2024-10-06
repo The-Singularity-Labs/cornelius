@@ -1,4 +1,4 @@
-package sync
+package ardrive
 
 import (
 	"fmt"
@@ -8,9 +8,11 @@ import (
 )
 
 type Config struct {
-	Concurrency  int        `yaml:"concurrency"`
-	TmpDirectory string     `yaml:"tmp_directory"`
-	Pipelines    []Pipeline `yaml:"pipelines"`
+	Id             string `yaml:"id"`
+	WalletPath     string `yaml:"wallet_path"`
+	Password       string `yaml:"password"`
+	ParentFolderId string `yaml:"parent_folder_id"`
+	IsPublic       bool   `yaml:"is_public"`
 }
 
 func LoadConfig(path string) (Config, error) {

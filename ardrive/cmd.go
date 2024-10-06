@@ -1,18 +1,19 @@
-package sync
+package ardrive
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"os/exec"
-	gosync "sync"
+	"sync"
 )
 
-var globalLock gosync.Mutex
+var globalLock sync.Mutex
 
 // ExecCmd executes a command and returns the combined output and error.
-func ExecCmd(cmd string, args ...string) ([]byte, error) {
+func ExecCmd(ctx context.Context, cmd string, args ...string) ([]byte, error) {
 	var combinedOutput bytes.Buffer
-	command := exec.Command(cmd, args...)
+	command := exec.CommandContext(ctx, cmd, args...)
 	command.Stdout = &combinedOutput
 	command.Stderr = &combinedOutput
 

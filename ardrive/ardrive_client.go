@@ -1,6 +1,7 @@
-package sync
+package ardrive
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"path"
@@ -35,7 +36,7 @@ func NewArdriveClient(logger log.Logger, executablePath, walletPath, walletPassw
 	}, nil
 }
 
-func (client *ArdriveClient) exec(args ...string) ([]byte, error) {
+func (client *ArdriveClient) exec(ctx context.Context, args ...string) ([]byte, error) {
 	args = append(args, []string{"-w", client.walletPath, "--unsafe-drive-password", client.walletPassword}...)
 	client.logger.Info(client.executablePath, "args", args)
 	resp, err := ExecCmd(client.executablePath, args...)

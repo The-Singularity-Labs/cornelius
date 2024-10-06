@@ -8,11 +8,9 @@ docker run  -v $(pwd)/test:/etc/cornelius -it --rm cornelius:latest -c /etc/corn
 
 ### TODO
 
-- [ ] Compile metrics 
-- [ ] Custom gateway
-- [ ] IAM auth
+- [ ] switch cli to basic sdk
+- [ ] Support IPFS bridge tags
 - [ ] Graceful termination
+- [ ] Custom gateway
 - [ ] Handle redundant pipelines (avoid race condition on new files)
 - [ ] Remove dependency on ardrive cli
-- [ ] Bulk uploads
-- [ ] Support IPFS bridge tags
